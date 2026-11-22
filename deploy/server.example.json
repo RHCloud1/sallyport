@@ -1,0 +1,11 @@
+{
+  "listen": ":443",
+  "tls_cert": "/etc/sallyport/origin.pem",
+  "tls_key": "/etc/sallyport/origin.key",
+  "decoy": "http://127.0.0.1:8080",
+  "door": "/api/sync/",
+  "proxy": true,
+  "users": [
+    { "name": "alice", "key": "<sallyport genkey 的输出>" }
+  ]
+}

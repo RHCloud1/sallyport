@@ -1,0 +1,10 @@
+{
+  "listen": "127.0.0.1:1080",
+  "server": "drive.example.com",
+  "door": "/api/sync/",
+  "key": "<与服务端该用户相同的 key>",
+  "endpoints": [],
+  "tunnels": 2,
+  "drive_user": "",
+  "drive_pass": ""
+}
