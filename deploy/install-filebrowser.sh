@@ -46,7 +46,11 @@ for u in "${USERS[@]}"; do
 	if ! grep -q "^$u " "$ACCOUNTS" 2>/dev/null; then
 		UPW=$(pw)
 		filebrowser -d "$DB" users add "$u" "$UPW" --scope "/$u" >/dev/null
-		mkdir -p "$ROOT/$u"
+		mkdir -p "$ROOT/$u/备份"
+		# A user's own view should not be empty: the client logs in and lists it.
+		for i in 1 2; do
+			head -c $((RANDOM * 48 + 786432)) /dev/urandom > "$ROOT/$u/备份/$(date -d "-$((i * 3)) day" +%Y%m%d)-$(openssl rand -hex 4).bin"
+		done
 		echo "$u $UPW" >> "$ACCOUNTS"
 	fi
 done
